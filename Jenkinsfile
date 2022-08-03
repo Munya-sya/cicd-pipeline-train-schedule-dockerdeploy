@@ -8,5 +8,15 @@ pipeline {
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
+        stage('Build Docker Image') {
+            when {
+                branch 'master'
+            }
+            steps{
+                script{
+                    app = docker.build("kennedy02/train-schedule-docker-deploy")
+                }
+            }
+        }
     }
 }
