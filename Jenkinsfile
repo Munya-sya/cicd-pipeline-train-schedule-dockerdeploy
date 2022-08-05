@@ -16,7 +16,7 @@ pipeline {
                 script {
                     app = docker.build("kennedy02/train-schedule")
                     app.inside {
-                        sh 'echo $(curl localhost:7070)'
+                        sh 'echo $(docker_hub_login)'
                     }
                 }
             }
