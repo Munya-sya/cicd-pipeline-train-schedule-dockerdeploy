@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        DOCKERHUB_CREDENTIALS=credentials('docker_hub_login')
+    }
     stages {
         stage('Build') {
             steps {
@@ -16,7 +19,7 @@ pipeline {
                 script {
                     app = docker.build("kennedy02/train-schedule")
                     app.inside {
-                        sh 'echo $(docker_hub_login)'
+                        sh 'echo $DOCKERHUB_CREDENTIALS_PSW
                     }
                 }
             }
