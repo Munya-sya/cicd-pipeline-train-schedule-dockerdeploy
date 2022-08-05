@@ -19,7 +19,7 @@ pipeline {
                 script {
                     app = docker.build("kennedy02/train-schedule")
                     app.inside {
-                        sh 'echo $DOCKERHUB_CREDENTIALS_PSW
+                        sh 'echo $DOCKERHUB_CREDENTIALS_PSW'
                     }
                 }
             }
