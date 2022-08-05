@@ -14,7 +14,7 @@ pipeline {
             }
             steps{
                 script{
-                    app = docker.build("kennedy02/train-schedule-docker-deploy")
+                    app = sudo docker.build("kennedy02/train-schedule-docker-deploy")
                 }
             }
         }
